@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        /* Your CSS styles */
+        .A {
+            height: 790px;
+            display: flex;
+            background-image: url(images/bg.jpg);
+        }
+        .B {
+            background-color: rgba(255, 254, 254, 0.9);
+            height: 680px;
+            border-radius: 20px;
+            width: 511px;
+            margin: 50px auto;
+            animation: fadeIn 0.5s forwards;
+        }
+        body, * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body {
+            background-image: url(lo.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .B img {
+            margin-left: 80px;
+            margin-top: 25px;
+            height: fit-content;
+            width: 300px;
+        }
+        label {
+            margin-left: 58px;
+            color: #333;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="password"] {
+            width: 350px;
+            margin-left: 56px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: 1px solid #a5a5a5;
+            border-radius: 5px;
+            margin-top: 8px;
+            font-size: 16px;
+        }
+        .b1 {
+            margin-top: 15px;
+        }
+        .checkbox {
+            margin-top: 15px;
+            margin-left: 55px;
+        }
+        button {
+            background-color: #fa5043;
+            padding: 10px 15px;
+            border: none;
+            color: white;
+            width: 380px;
+            border-radius: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 25px;
+            margin-left: 56px;
+        }
+        button:hover {
+            background-color: #ad7975;
+            color: white;
+        }
+        .Sign-In {
+            margin-left: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        a {
+            text-decoration: none;
+            color: #fa5043;
+            font-weight: bold;
+        }
+        select {
+            width: 350px;
+            margin-left: 56px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #a5a5a5;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="A">
+        <div class="B">
+            <img src="images/NestFix-removebg-preview.png">
+            <form method="post" action="register.jsp" name="registrationForm" onsubmit="return validateForm()">
+                <div class="b1">
+                    <label class="form-label">Name:</label> 
+                    <input type="text" class="form-control" name="u1">
+                </div>
+                <div class="b1">
+                    <label class="form-label">Phone Number:</label>
+                    <input type="text" class="form-control" name="u2">
+                </div>
+                <div class="b1">
+                    <label class="form-label">Email Address:</label>
+                    <input type="email" placeholder=" " name="u3" required> 
+                </div>
+                <div class="b1">
+                    <label for="inputPassword">Password:</label>
+                    <input type="password" placeholder="" name="u4">
+                </div>
+                <div class="b1">
+                    <label for="userType">User Type:</label>
+                    <select name="u5">
+                        <option value="Customer">Customer</option>
+                        <option value="Service Provider">Service Provider</option>
+                    </select>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="invalidCheck2" required> Agree to terms and conditions
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <center>
+                <div class="Sign-In">
+                    Already have a NestFix account? <a href="login.html">Sign-In</a> 
+                </div>
+            </center>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            // Get form inputs
+            var name = document.forms["registrationForm"]["u1"].value;
+            var phone = document.forms["registrationForm"]["u2"].value;
+            var email = document.forms["registrationForm"]["u3"].value;
+            var password = document.forms["registrationForm"]["u4"].value;
+
+            // Validate name (required and must be at least 3 characters)
+            if (name == "" || name.length < 3) {
+                alert("Please enter a valid name (at least 3 characters).");
+                return false;
+            }
+
+            // Validate phone number (required and must be a valid phone number format)
+            var phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return false;
+            }
+
+            // Validate email (required and must be a valid email format)
+            var emailRegex = /\S+@\S+\.\S+/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Validate password (required and must be at least 6 characters)
+            if (password == "" || password.length < 6) {
+                alert("Please enter a valid password (at least 6 characters).");
+                return false;
+            }
+
+            // If all validations pass, the form can be submitted
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    /* border: 2px solid black; */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(images/bg.jpg);
+            background-size: cover;
+            animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+img {
+    display: block;
+    margin: 0 auto 20px;
+    width: 200px;
+    height: auto;
+    animation: fadeInImg 1s ease forwards;
+}
+
+.form {
+    width: 700px;
+    background-color: #eeeeee;
+    padding: 0 30px;
+    display: grid;
+    gap: 20px;
+    padding-bottom: 30px;
+    background-color: rgba(255, 254, 254, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            width: 480px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* margin-left: -390px; */
+}
+
+input[type="email"] {
+    width: 350px;
+    margin-left: 22px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #a5a5a5;
+border-radius: 5px;
+    margin-bottom: 10px;
+    border: #fa5043;
+    transition: border-color 0.3s ease;
+}
+
+.otpverify {
+    width: fit-content;
+    /* display: flex; */
+    gap: 20px;
+}
+
+/* .btn {
+    padding: 8px;
+    background-color: gold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
+    margin-top: 5px;
+} */
+
+.otpverify {
+    display: none;
+}
+
+.cont {
+    display: none;
+}
+
+.cont {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.i1 {
+    background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    backdrop-filter: blur(6px);
+    align-content: center;
+    color: aliceblue;
+    margin-top: -220px;
+    margin-left: 100px;
+
+}
+button {
+    margin-top: 8px;
+    background-color: #fa5043;
+    color: white;
+    padding: 10px 0;
+    border: none;
+    margin-left: 25px;
+    border-radius: 15px;
+    width: 350px;
+    font-size: 16px;
+    
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ad7975;
+}
+
+#otp_inp{
+
+    width: 153px;
+    margin-left: 22px;
+    padding: 10px;
+    /* border: 1px solid #a5a5a5; */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: #fa5043;
+}
+
+#otp-btn{
+    width: 180px ;
+    margin-bottom: 12px;
+    padding: 14px;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body,
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      body {
+        background-image:url(images/bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .login-container {
+        background-color: rgba(255, 254, 254, 0.9);
+        height: 0;
+        border-radius: 20px;
+        width: 480px;
+        margin: 120px auto;
+        overflow: hidden;
+        animation: fadeIn 0.5s forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          height: 0;
+        }
+        to {
+          height: 500px;
+        }
+      }
+
+      .logo img {
+    margin-top: 25px;
+    height: fit-content;
+    width: 300px;
+      }
+      .logo {
+        text-align: center;
+      }
+
+
+
+      form {
+        padding-top: 40px;
+      }
+      label {
+        color: #333;
+            font-weight: bold;
+        margin-left: 50px;
+        margin-top: 10px;
+        /* font-weight: 500; */
+      }
+
+      input[type="email"],
+      input[type="password"] {
+        width: 350px;
+        margin-left: 56px;
+        padding: 10px;
+        border: 1px solid #a5a5a5;
+        border-radius: 5px;
+        /* border: none; */
+        margin-top: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        font-size: 16px;
+      }
+
+      .form-group {
+        margin-top: 15px;
+      }
+
+      #fp {
+        margin-top: 10px;
+        margin-left: 60px;
+        text-decoration: none;
+        color: orangered;
+        font-weight: 500;
+      }
+
+      button {
+        background-color: #fa5043;
+        padding: 10px 15px;
+        border: none;
+        color: white;
+        width: 350px;
+        border-radius: 15px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 30px;
+        margin-left: 60px;
+      }
+
+      button:hover {
+        background-color: #d35249;
+        color: white;
+      }
+
+      .reg {
+        margin-left: 150px;
+        margin-top: 40px;
+        font-weight: bold;
+      }
+
+      a {
+        text-decoration: none;
+        color: orangered;
+        /* font-weight: 500; */
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="logo">
+        <img src="images/NestFix-removebg-preview.png" alt="NestFix Logo" />
+      </div>
+
+      <form method="post" action="login-check.jsp" id="login-form">
+        <!-- Action attribute added -->
+
+        <div class="form-group" id="fg">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email Address"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <a href="otp.html" id="fp">Forgot Password?</a>
+        </div>
+        <button type="submit" onClick="valid">Login</button>
+      </form>
+
+      <div class="reg">
+        <p>New to NestFix? <a href="signup.html">Register</a></p>
+      </div>
+    </div>
+  </body>
+</html>

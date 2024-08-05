@@ -1,0 +1,130 @@
+.A {
+    border: 2px solid black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(images/bg.jpg);
+    background-size: cover;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.B {
+    background-color: rgba(255, 254, 254, 0.8);
+    border-radius: 20px;
+    padding: 30px;
+    width: 480px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+body,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url(lo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.B img {
+    display: block;
+    margin: 0 auto 20px;
+    width: 200px;
+    height: auto;
+    animation: fadeInImg 1s ease forwards;
+}
+
+@keyframes fadeInImg {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+label {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    margin-left: 20px;
+}
+
+input[type="password"],input[type="email"] {
+    width: 350px;
+    margin-left: 22px;
+    padding: 10px;
+    border: 1px solid #a5a5a5;
+border-radius: 5px;
+    margin-bottom: 10px;
+    border: #fa5043;
+    transition: border-color 0.3s ease;
+}
+
+/* input[type="password"]:focus {
+    border-color: #fa5043;
+} */
+
+button {
+    margin-top: 8px;
+    background-color: #fa5043;
+    color: white;
+    padding: 10px 0;
+    border: none;
+    margin-left: 25px;
+    border-radius: 15px;
+    width: 350px;
+    font-size: 16px;
+    
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ad7975;
+}
+
+.Sign-In {
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #fa5043;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ad7975;
+}
