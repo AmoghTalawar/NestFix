@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Fontawesome icon -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        font-family: 'Open Sans', sans-serif;
+    }
+    .contact-bg{
+        height: 50vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../images/bg.jpg);      
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        text-align: center;
+        color: #fff;
+        /* display: flex; */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+.contact-bg h2{
+    margin-top: 20px;
+    font-size: 3rem;
+    /* margin-bottom: 30px ; */
+    text-transform: uppercase;
+    padding: 0.4rem 0;
+    letter-spacing: 4px;
+}
+.big-container {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+            /* Adjusted margin */
+        }
+
+        .name-serv {
+            margin-top: 80px;
+            width: 50%;
+            margin-left: 20px;
+        }
+
+        .booking {
+            margin-top: 50px;
+            height: fit-content;
+            width: 60vh;
+            padding: 15px;
+            margin-left: 20px;
+            border: 2px solid rgb(116, 113, 113);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-weight: bolder;
+            font-size: 30px;
+        }
+
+        .serv-desc {
+            color: rgb(37, 35, 35);
+            margin-top: 25px;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        p {
+            color: rgb(66, 64, 64);
+            font: 1em small-caps;
+        }
+
+        .serv-desc ul {
+            margin-top: 15px;
+        }
+
+        .serv-desc ul li {
+            margin-top: 5px;
+            margin-left: 20px;
+            font: 1em small-caps;
+        }
+
+        center {
+            margin-top: 25px;
+        }
+
+        h4 {
+            font-size: 18px;
+            color: rgb(85, 83, 83);
+        }
+        .amt{
+            margin-top: 8px;
+            margin-left: 2px;
+        }
+
+        input[type="number"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            resize: none; /* Prevent resizing */
+            user-select: none;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #a5a5a5;
+            border-radius: 5px;
+            margin-top: 8px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+    .amt{
+        display: flex;
+    }
+        .amt input[type="number"]{
+            border: none;
+            font-weight: bolder;
+            font-size: 20px;
+            /* float: left; */
+            margin-left: 220px;
+            width: 60px;
+            margin-top: 16px;
+            padding: 0px;
+            /* text-align: center; */
+            /* border: 2px solid black; */
+            
+        }
+        .amt label{
+            margin-left: 5px;
+            margin-top: 18px;
+            font-size: 20px;
+        }
+        .group {
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            background-color: rgb(131, 209, 14);
+            height: 50px;
+
+            font-size: 16px;
+            border-radius: 10px;
+            border: none;
+            color: rgb(255, 255, 255);
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+
+        /* Custom scrollbar */
+        .time-dropdown {
+            max-height: 100px;
+            overflow-y: auto;
+        }
+        .nest-works{
+            margin-top: 50px;
+            background-color: #eeecec;
+            height: 300px;
+            /* border: 2px solid black; */
+            text-align: center;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+.name-serv img{
+            height: 300px;
+            width: 100%;
+        }
+        .name-serv h1{
+            margin-left: 0px;
+            margin-bottom: 12px;
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        .wrapper1{
+            height: 250px;
+            width: 100%;
+            position: relative; /* Ensure proper positioning for overlay */
+            overflow: hidden; /* Hide overflowing content */
+        }
+        .wrapper2{
+            height: 250px;
+            width: 100%;
+            position: relative; /* Ensure proper positioning for overlay */
+            overflow: hidden; /* Hide overflowing content */
+        }
+        .wrapper3{
+            height: 250px;
+            width: 100%;
+            position: relative; /* Ensure proper positioning for overlay */
+            overflow: hidden; /* Hide overflowing content */
+        }
+        .Maindiv{
+            display: flex;
+        }
+        .wrapper1 img,
+        .wrapper2 img,
+        .wrapper3 img {
+            max-width: 100%; /* Ensure the image doesn't exceed the container width */
+            border: 2px solid black; /* Add border */
+        }
+        
+        .content {
+            opacity: 0; /* Initially hidden */
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+            color: white; /* Text color */
+            padding: 10px;
+            position: absolute; /* Position over the image */
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            transition: opacity 0.3s; /* Smooth transition */
+        }
+        .wrapper1:hover .content,
+        .wrapper2:hover .content,
+        .wrapper3:hover .content {
+            opacity: 1; /* Show content on hover */
+        }
+        .content h1,
+        .content p {
+            margin: 5px; /* Adjust spacing */
+        }
+
+        .related-services {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.related-services h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.service-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service {
+    width: 300px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.service img {
+    width: 100%;
+    height: 250px;
+}
+
+.service-info h3 {
+    margin-bottom: 10px;
+    margin-right: 140px;
+}
+
+.service-info h3 {
+    margin-bottom: 10px;
+}
+
+.service-info p {
+    margin-bottom: 10px;
+}
+
+.service-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price,
+.rating {
+    font-size: 14px;
+    margin-left: 6px;
+}
+.banner {
+    margin: 20px auto;
+    height: 350px;
+    border: none;
+    background-size: cover;
+    border-radius: 15px;
+    background-image: url(https://4.imimg.com/data4/VA/SQ/MY-7374156/carpentry-services-500x500.jpg); /* Random home service image from Unsplash */
+}
+.rating {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            text-align: center;
+        }
+
+        .rating > span {
+            display: inline-block;
+            position: relative;
+            width: 1.1em;
+        }
+
+        .rating > span:hover:before,
+        .rating > span:hover ~ span:before {
+            content: "\2605";
+            position: absolute;
+            color: gold;
+        }
+      
+        star-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .star-rating i {
+            margin-left: 6px;
+            color: gold;
+        }
+        #view button{
+            background-color: orangered; 
+            
+        }
+
+
+  </style>
+</head>
+<body>
+
+
+  <section class="contact-section">
+    <div class="contact-bg">
+      <nav>
+        <a href="../uindex.html"><img src="../images/logo2.png"></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-close" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="../uindex.html">HOME</a></li>
+                    <li><a href="../uaboutus.html">ABOUT</a></li>
+                    <li><a href="../uservices.html">SERVICES </a></li>
+                    <li><a href="../ucontactus.html">CONTACT</a></li>
+                    
+          </ul>
+        </div>
+      </nav>
+      <h2>Services</h2>
+    </div>
+  </section>
+    
+  <div class="banner">
+
+  </div>
+
+  <div id="booking-section">
+    <div class="big-container">
+        <div class="name-serv">
+            <h1>Drill and Hang</h1>
+            <img src="../images/drill.png" alt="">
+            <div class="serv-desc">
+                <p>Let us handle your drilling and hanging needs with precision and professionalism. 
+                  Our expert technicians specialize in safely and securely mounting a variety of items 
+                  to your walls, ensuring a flawless finish every time. Whether you need shelves, 
+                  artwork, mirrors, or any other fixtures installed, we've got you covered. Sit back 
+                  and relax while we take care of the heavy lifting and ensure your belongings are 
+                  ecurely mounted, leaving your walls looking beautiful and your home organized.</p>
+                <ul>
+                    <li>Secure Wall Mounting: Safely hang shelves, cabinets, mirrors, TV mounts, and other fixtures to your walls, providing 
+                      a sturdy and secure installation.</li>
+                    <li>TV Mounting and Wiring: Create a sleek and clutter-free entertainment area with professional TV mounting services, 
+                      including concealed wiring for a clean look.</li>
+                    <li>Heavy Item Installation: Trust us to safely mount heavier items such as large mirrors, heavy 
+                      artwork, or wall-mounted furniture.</li>
+                    <li>Custom Solutions: Tailored drilling and hanging solutions to
+                      accommodate your specific needs and preferences.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="booking">
+            <center>
+                <h4>Drill and Hang</h4>
+            </center>
+          <form action="session1.jsp" method="post">
+            <div class="group">
+                <h5>Tell Us about the job </h5>
+                <textarea name="job_description" id="job_description" cols="30" rows="10"
+                    placeholder="Please describe the job in detail.(required)" required ></textarea>
+            </div>
+            <div class="group">
+                <h5>When would you like a Pro to come?</h5>
+                <input type="date" id="booking_date" name="booking_date" placeholder="Select Date" value="">
+            </div>
+            <div class="group">
+                <h5>What time do you prefer?</h5>
+                <select id="booking_time" name="booking_time" class="time-dropdown">
+                    <option value="09:00">9:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="13:00">1:00 PM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                    <option value="17:00">5:00 PM</option>
+                    <option value="18:00">6:00 PM</option>
+                </select>
+              </div>
+              <input type="text" name="serviceType" id="serviceType" value="Drill and Hang" hidden>
+  
+            <div class="amt">
+              <label for="amount">Price:</label> 
+            <span>  <input type="number" value="1500" name="amount" id="amount" readonly></span>
+          </div>
+            <button type="submit">Next</button>
+          </form>
+        </div>
+    </div>
+  </div>
+  <div class="related-services">
+    <h2>Related Services</h2>
+    <div class="service-container">
+        <div class="service">
+            <a href="cp-cupboard-drawer.html">
+                <img src="../images/cub.png" alt="Service 1">
+            </a>
+            <div class="service-info">
+                <h3 style="margin-right: 80px;">Cupboard and Drawer </h3>
+               
+                <div class="star-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="service-details">
+                    <span class="price">₹2500</span>
+                    
+                </div>
+                <div class="btn" id="view">
+                  <button> <a href="cp-cupboard-drawer.html">View More</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="service">
+            <a href="cp-drill-hang.html">
+                <img src="../images/driill.png" alt="Service 2">
+            </a>
+            <div class="service-info">
+                <h3>Drill and Hang</h3>
+               
+                <div class="star-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="service-details">
+                    <span class="price">₹1500</span>
+                    
+                </div>
+                <div class="btn" id="view">
+                  <button> <a href="cp-drill-hang.html">View More</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="service">
+            <a href="cp-cabinet.html">
+                <img src="../images/imgre1.png" alt="Service 3">
+            </a>
+            <div class="service-info">
+                <h3 style="margin-left: -52px;">Cabinet</h3>
+  
+                <div class="star-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="service-details">
+                    <span class="price">₹1000</span>
+                    
+                </div>
+                <div class="btn" id="view">
+                  <button> <a href="c-dorbell.html">View More</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+    <section>
+        <footer>
+            <div class="panel">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </div>
+    
+            <div class="panel">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="services.html">Home Cleaning</a></li>
+                    <li><a href="services.html">Electrical</a></li>
+                    <li><a href="services.html">AC Services</a></li>
+        
+                </ul>
+            </div>
+    
+            <div class="panel">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Vidyanagr</li>
+                    <li>Hubli, India</li>
+                    <li>Email: NestFix@example.com</li>
+                </ul>
+            </div>
+    
+            <div class="panel">
+                <h3>Social Media</h3>
+                <ul class="social-links">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
+        </footer>
+    </section>
+
+
+
+    <script>
+        AOS.init();
+
+
+        
+        // Set minimum date for booking to today's date
+        const bookingDate = document.getElementById("booking_date");
+        const currentDate = new Date().toISOString().slice(0, 10);
+        bookingDate.min = currentDate;
+        // Set the value of the date field to the current date
+        bookingDate.value = currentDate;
+
+        // Additional features and animations (examples using vanilla JavaScript):
+        const bookingTime = document.getElementById('booking_time');
+        const timeOptions = document.querySelectorAll('.time-dropdown option');
+
+        // Set initial placeholder for time
+        bookingTime.value = timeOptions[0].value;
+
+
+      </script>
+</body>
+</html>
