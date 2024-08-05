@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Body Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Common Styles */
+        .container {
+            margin: 60px auto;
+            width: 600px;
+            box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+            padding: 20px;
+            position: relative;
+            background-color: #ffffff;
+            border-radius: 10px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #f44336;
+            position: relative;
+        }
+
+        .back-arrow {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            height: 20px;
+            width: 20px;
+            background-color: #f44336;
+            clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+        }
+
+        .back-arrow::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 7px;
+            display: inline-block;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(135deg);
+        }
+
+        label {
+            color: #333;
+            font-weight: bold;
+            margin-left: 50px;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="tel"] {
+            width: calc(100% - 112px);
+            margin-left: 56px;
+            padding: 10px;
+            border: 1px solid #a5a5a5;
+            border-radius: 5px;
+            margin-top: 8px;
+            font-size: 16px;
+        }
+
+        .group {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #7bcc11;
+            padding: 10px 15px;
+            border: none;
+            color: white;
+            width: calc(100% - 112px);
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 56px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Animation */
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Flex container for grouping */
+        .head {
+            display: flex;
+        }
+
+        span {
+            margin-left: 60px;
+        }
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+         }
+
+        .popup h2 {
+            color: #f44336;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .popup p {
+            text-align: center;
+        }
+
+        .popup .cancel-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        a {
+            text-align: center;
+            color: #f44336;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Please Enter your contact Details</h2>
+        <form id="booking-form" action="booking.jsp" method="post">
+            <div class="head">
+                <div class="first group">
+                    <label for="name">Full Name</label><br>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div class="first group">
+                    <label for="phone">Mobile Number</label>
+                    <input type="tel" name="phone" id="phone" pattern="[0-9]{10}" required>
+                </div>
+            </div>
+
+            <div class="group">
+                <label for="email">Email</label><br>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="group">
+                <label for="address">Address</label><br>
+                <input type="text" name="address" required><br>
+            </div>
+
+            <div class="head">
+                <div class="first group">
+                    <label for="city">City Name</label><br>
+                    <input type="text" name="city" id="city" required>
+                </div>
+                <div class="first group">
+                    <label for="zip">Zip Code</label>
+                    <input type="text" name="zip" id="zip" pattern="[0-9]{5}" required>
+                </div>
+            </div>
+            <button type="submit">Book</button>
+        </form>
+    </div>
+
+
+    <script>
+        // Function to show the popup message
+       
+
+     
+        function showPopup(bookingId) {
+            var popup = document.getElementById("bookingPopup");
+            var bookingInfo = document.getElementById("bookingInfo");
+            bookingInfo.innerHTML = "Booking successful!<br>Booking ID: " + bookingId;
+            popup.style.display = "block";
+        }
+
+        function closePopup() {
+            var popup = document.getElementById("bookingPopup");
+            popup.style.display = "none";
+        }
+
+
+    </script>
+</body>
+
+</html>
