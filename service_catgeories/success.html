@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Successful</title>
+    <style>
+        /* Styles for the popup content */
+        body {
+            
+            background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url(seccess.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+        }
+
+        h2 {
+            text-align: center;
+            color: #f44336;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #bk {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #f44336;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Booking Successful</h2>
+        <p>Your booking has been successfully processed. Thank you!
+        </p>
+        <p id="bk">Your Booking ID: <b><%= request.getAttribute("bookingId") %></b></p>
+        <p><a href="index.html">Go to Home Page</a></p>
+    </div>
+    <script type="text/javascript">
+        window.onload = function () {
+            // Retrieve booking ID from request attribute
+            var bookingId = '<%= request.getAttribute("bookingId") %>';
+            document.getElementById('bk').innerHTML = 'Your Booking Id : ' + bookingId;
+
+            if (bookingId) {
+                // Display success message with booking ID
+                alert("Booking successful! Your Booking ID is: " + bookingId);
+            }
+        };
+    </script>
+</body>
+
+</html>
