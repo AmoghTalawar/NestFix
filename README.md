@@ -13,7 +13,7 @@ Welcome to the HomeService Website repository! This project aims to provide a co
 - *Service Completion Status Update*: In the admin dashboard, administrators can update the status of completed services from "complete" to "pending" after service providers mark them as completed.
 - *Ratings and Reviews*: Rate and review service providers to help other users make informed decisions.
 - *Admin Panel*: Administrators can manage users, services, bookings, and more through a dedicated admin dashboard.
-- *Responsive Design*: The website is optimized for various devices, ensuring a seamless user experience across desktop and mobile platforms.
+
 
 ## Technologies Used
 
