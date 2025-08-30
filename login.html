@@ -3,159 +3,529 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Login - NestFix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
       body,
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: sans-serif;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       }
 
       body {
-        background-image:url(images/bg.jpg);
+        background-image: url(images/bg.jpg);
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
+        /* background-attachment: fixed; */
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.25) 0%,
+          rgba(0, 0, 0, 0.15) 25%,
+          rgba(0, 0, 0, 0.05) 50%,
+          rgba(0, 0, 0, 0.15) 75%,
+          rgba(0, 0, 0, 0.35) 100%
+        );
+        z-index: 1;
+      }
+
+      body::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          radial-gradient(circle at 25% 75%, rgba(250, 80, 67, 0.08) 0%, transparent 40%),
+          radial-gradient(circle at 75% 25%, rgba(255, 107, 107, 0.08) 0%, transparent 40%),
+          radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 60%),
+          radial-gradient(circle at 10% 90%, rgba(250, 80, 67, 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 90% 10%, rgba(255, 107, 107, 0.05) 0%, transparent 50%),
+          linear-gradient(
+            45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.02) 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.01) 75%,
+            transparent 100%
+          );
+        z-index: 2;
+        animation: backgroundShift 25s ease-in-out infinite;
+      }
+
+      @keyframes backgroundShift {
+        0%, 100% {
+          opacity: 0.7;
+          transform: scale(1) rotate(0deg);
+        }
+        25% {
+          opacity: 0.9;
+          transform: scale(1.02) rotate(0.5deg);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.03) rotate(0deg);
+        }
+        75% {
+          opacity: 0.85;
+          transform: scale(1.01) rotate(-0.5deg);
+        }
+      }
+
+      /* Floating particles effect */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 3;
+      }
+
+      .particle {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        animation: float 8s ease-in-out infinite;
+        box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+      }
+
+      .particle:nth-child(1) {
+        width: 4px;
+        height: 4px;
+        background: rgba(250, 80, 67, 0.6);
+        box-shadow: 0 0 8px rgba(250, 80, 67, 0.3);
+      }
+
+      .particle:nth-child(3) {
+        width: 2px;
+        height: 2px;
+        background: rgba(255, 107, 107, 0.5);
+        box-shadow: 0 0 4px rgba(255, 107, 107, 0.2);
+      }
+
+      .particle:nth-child(5) {
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+
+      .particle:nth-child(1) {
+        top: 15%;
+        left: 15%;
+        animation-delay: 0s;
+        animation-duration: 12s;
+      }
+
+      .particle:nth-child(2) {
+        top: 65%;
+        left: 85%;
+        animation-delay: 3s;
+        animation-duration: 15s;
+      }
+
+      .particle:nth-child(3) {
+        top: 85%;
+        left: 25%;
+        animation-delay: 6s;
+        animation-duration: 10s;
+      }
+
+      .particle:nth-child(4) {
+        top: 25%;
+        left: 75%;
+        animation-delay: 2s;
+        animation-duration: 18s;
+      }
+
+      .particle:nth-child(5) {
+        top: 75%;
+        left: 35%;
+        animation-delay: 4s;
+        animation-duration: 14s;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px) translateX(0px) scale(1);
+          opacity: 0.4;
+        }
+        20% {
+          transform: translateY(-25px) translateX(15px) scale(1.1);
+          opacity: 0.8;
+        }
+        40% {
+          transform: translateY(-15px) translateX(-10px) scale(0.9);
+          opacity: 0.6;
+        }
+        60% {
+          transform: translateY(-30px) translateX(20px) scale(1.2);
+          opacity: 0.9;
+        }
+        80% {
+          transform: translateY(-10px) translateX(-15px) scale(0.8);
+          opacity: 0.5;
+        }
       }
 
       .login-container {
-        background-color: rgba(255, 254, 254, 0.9);
-        height: 0;
-        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        border-radius: 24px;
         width: 480px;
-        margin: 120px auto;
+        padding: 40px;
+        box-shadow: 
+          0 25px 50px rgba(0, 0, 0, 0.15),
+          0 12px 24px rgba(0, 0, 0, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
         overflow: hidden;
-        animation: fadeIn 0.5s forwards;
+        z-index: 10;
       }
 
-      @keyframes fadeIn {
+      .login-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #fa5043, #ff6b6b, #fa5043);
+        background-size: 200% 100%;
+        animation: shimmer 2s ease-in-out infinite;
+      }
+
+      @keyframes slideUp {
         from {
-          height: 0;
+          opacity: 0;
+          transform: translateY(30px);
         }
         to {
-          height: 500px;
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
+
+      @keyframes shimmer {
+        0%, 100% { background-position: 200% 0; }
+        50% { background-position: -200% 0; }
+      }
+
+      .logo {
+        text-align: center;
+        margin-bottom: 32px;
       }
 
       .logo img {
-    margin-top: 25px;
-    height: fit-content;
-    width: 300px;
-      }
-      .logo {
-        text-align: center;
+        height: auto;
+        width: 280px;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        transition: transform 0.3s ease;
       }
 
-
+      .logo img:hover {
+        transform: scale(1.02);
+      }
 
       form {
-        padding-top: 40px;
+        margin-bottom: 24px;
       }
+
+      .form-group {
+        margin-bottom: 24px;
+        position: relative;
+      }
+
       label {
-        color: #333;
-            font-weight: bold;
-        margin-left: 50px;
-        margin-top: 10px;
-        /* font-weight: 500; */
+        color: #1a1a1a;
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 8px;
+        display: block;
+        letter-spacing: 0.025em;
       }
 
       input[type="email"],
       input[type="password"] {
-        width: 350px;
-        margin-left: 56px;
-        padding: 10px;
-        border: 1px solid #a5a5a5;
-        border-radius: 5px;
-        /* border: none; */
-        margin-top: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        width: 100%;
+        padding: 16px 20px;
+        border: 2px solid #e1e5e9;
+        border-radius: 12px;
         font-size: 16px;
+        font-weight: 400;
+        background: rgba(255, 255, 255, 0.9);
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       }
 
-      .form-group {
-        margin-top: 15px;
+      input[type="email"]:focus,
+      input[type="password"]:focus {
+        outline: none;
+        border-color: #fa5043;
+        box-shadow: 
+          0 0 0 4px rgba(250, 80, 67, 0.1),
+          0 4px 12px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 1);
+      }
+
+      input[type="email"]::placeholder,
+      input[type="password"]::placeholder {
+        color: #9ca3af;
+        font-weight: 400;
+      }
+
+      .forgot-password {
+        text-align: right;
+        margin-bottom: 32px;
       }
 
       #fp {
-        margin-top: 10px;
-        margin-left: 60px;
-        text-decoration: none;
-        color: orangered;
+        color: #fa5043;
         font-weight: 500;
+        font-size: 14px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      #fp::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #fa5043;
+        transition: width 0.3s ease;
+      }
+
+      #fp:hover::after {
+        width: 100%;
+      }
+
+      #fp:hover {
+        color: #d35249;
       }
 
       button {
-        background-color: #fa5043;
-        padding: 10px 15px;
-        border: none;
+        width: 100%;
+        background: linear-gradient(135deg, #fa5043 0%, #ff6b6b 100%);
         color: white;
-        width: 350px;
-        border-radius: 15px;
+        border: none;
+        padding: 16px 24px;
+        border-radius: 12px;
         font-size: 16px;
+        font-weight: 600;
         cursor: pointer;
-        margin-top: 30px;
-        margin-left: 60px;
+        transition: all 0.3s ease;
+        box-shadow: 
+          0 4px 12px rgba(250, 80, 67, 0.3),
+          0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+      }
+
+      button:hover::before {
+        left: 100%;
       }
 
       button:hover {
-        background-color: #d35249;
-        color: white;
+        transform: translateY(-2px);
+        box-shadow: 
+          0 8px 20px rgba(250, 80, 67, 0.4),
+          0 4px 8px rgba(0, 0, 0, 0.15);
       }
 
-      .reg {
-        margin-left: 150px;
-        margin-top: 40px;
-        font-weight: bold;
+      button:active {
+        transform: translateY(0);
+        box-shadow: 
+          0 2px 8px rgba(250, 80, 67, 0.3),
+          0 1px 2px rgba(0, 0, 0, 0.1);
       }
 
-      a {
+      .register-section {
+        text-align: center;
+        padding-top: 24px;
+        border-top: 1px solid #e1e5e9;
+      }
+
+      .register-section p {
+        color: #6b7280;
+        font-weight: 500;
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .register-section a {
+        color: #fa5043;
+        font-weight: 600;
         text-decoration: none;
-        color: orangered;
-        /* font-weight: 500; */
-        font-weight: bold;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .register-section a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #fa5043;
+        transition: width 0.3s ease;
+      }
+
+      .register-section a:hover::after {
+        width: 100%;
+      }
+
+      .register-section a:hover {
+        color: #d35249;
+      }
+
+      /* Responsive design */
+      @media (max-width: 520px) {
+        .login-container {
+          width: 90%;
+          margin: 20px;
+          padding: 32px 24px;
+        }
+        
+        .logo img {
+          width: 240px;
+        }
+      }
+
+      /* Loading state for button */
+      button.loading {
+        pointer-events: none;
+        opacity: 0.8;
+      }
+
+      button.loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -10px 0 0 -10px;
+        border: 2px solid transparent;
+        border-top: 2px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
       }
     </style>
   </head>
   <body>
+    <!-- Floating particles -->
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    
     <div class="login-container">
       <div class="logo">
         <img src="images/NestFix-removebg-preview.png" alt="NestFix Logo" />
       </div>
 
       <form method="post" action="login-check.jsp" id="login-form">
-        <!-- Action attribute added -->
-
-        <div class="form-group" id="fg">
+        <div class="form-group">
           <label for="email">Email Address</label>
           <input
             type="email"
             name="email"
             id="email"
-            placeholder="Email Address"
+            placeholder="Enter your email address"
             required
           />
         </div>
+        
         <div class="form-group">
           <label for="password">Password</label>
           <input
             type="password"
             name="password"
             id="password"
-            placeholder="Password"
+            placeholder="Enter your password"
             required
           />
         </div>
 
-        <div class="form-group">
+        <div class="forgot-password">
           <a href="otp.html" id="fp">Forgot Password?</a>
         </div>
-        <button type="submit" onClick="valid">Login</button>
+        
+        <button type="submit" onClick="valid">Sign In</button>
       </form>
 
-      <div class="reg">
-        <p>New to NestFix? <a href="signup.html">Register</a></p>
+      <div class="register-section">
+        <p>New to NestFix? <a href="signup.html">Create an account</a></p>
       </div>
     </div>
+
+    <script>
+      // Add loading state to button
+      document.getElementById('login-form').addEventListener('submit', function(e) {
+        const button = this.querySelector('button[type="submit"]');
+        button.classList.add('loading');
+        button.textContent = 'Signing In...';
+      });
+
+      // Add focus effects
+      const inputs = document.querySelectorAll('input[type="email"], input[type="password"]');
+      inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+          this.parentElement.style.transform = 'translateY(-2px)';
+        });
+        
+        input.addEventListener('blur', function() {
+          this.parentElement.style.transform = 'translateY(0)';
+        });
+      });
+    </script>
   </body>
 </html>
